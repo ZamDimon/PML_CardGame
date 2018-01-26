@@ -14,6 +14,8 @@ public class PlaceCard : MonoBehaviour {
 	private float realSpeed;
 	private int currMode = 0;
 
+	private bool IsChosenCard = false;
+
 	public void Start() {
 		//Setting start values
 		originPosition = transform.position; 
@@ -40,6 +42,16 @@ public class PlaceCard : MonoBehaviour {
 		return false;
 	} 
 
+	bool CanChooseCard () {
+		GameObject[] _cards = GameObject.FindGameObjectsWithTag ("Card");
+		for (int i = 0; i < _cards.Length; ++i) {
+			if (_cards[i].GetComponent<PlaceCard> ().mode != 0)
+				return false;
+		}
+
+		return true;
+	}
+
 	int mode = 0;
 
 	Vector3 MousePoint () {
@@ -65,7 +77,7 @@ public class PlaceCard : MonoBehaviour {
 			pointToMove = (IsThisCard (results) && !Input.GetMouseButton (0)) ? OnCardPosition : originPosition; //Playing animation
 			realSpeed = (IsThisCard (results) && Input.GetMouseButton (0)) ? moveSpeed : realSpeed;
 
-			if (IsThisCard (results) && Input.GetMouseButton (0)) 
+			if (IsThisCard (results) && Input.GetMouseButton (0) && CanChooseCard()) 
 				mode = 1;
 			
 			break;
