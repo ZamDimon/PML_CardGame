@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 224896367368258658}
   - component: {fileID: 222399086572835580}
   - component: {fileID: 114391144702255472}
-  - component: {fileID: 114380373423035202}
+  - component: {fileID: 114623942780552732}
   m_Layer: 5
   m_Name: Card2
   m_TagString: Card
@@ -81,19 +81,6 @@ MonoBehaviour:
   m_Text: '4
 
 '
---- !u!114 &114380373423035202
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1318353752009860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f439bea4aeddd6c43ab2a00f3d782ce8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animationSpeed: 8
-  moveSpeed: 100000
 --- !u!114 &114391144702255472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -121,6 +108,23 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114623942780552732
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1318353752009860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac171238003d254449ba8ff86f2a34c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationSpeed: 8
+  moveSpeed: 8
+  distanceToSet: 350
+  tableObject: {fileID: 0}
+  StartStats: 4
+  StatsObject: {fileID: 1724851312442310}
 --- !u!222 &222300735488679018
 CanvasRenderer:
   m_ObjectHideFlags: 1

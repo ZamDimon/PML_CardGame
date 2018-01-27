@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CardManager : MonoBehaviour {
+	public GameObject tableObject;
+
 	public struct Card {
 		public int stats;
 		public GameObject cardObject, statsObject;
@@ -19,22 +21,40 @@ public class CardManager : MonoBehaviour {
 
 		public void CardDie() {
 			stats = 0;
-			//Destroy (cardObject);
+			Destroy (cardObject);
+		}
+
+		public Vector3 GetPosition (float cardAmount, float number, GameObject fieldObj) {
+			float width = (cardObject.GetComponent<RectTransform> ().sizeDelta.x + 5) * cardAmount;
+			float midPointX = fieldObj.transform.position.x - width / 2 + 
+				number * (cardObject.GetComponent<RectTransform> ().sizeDelta.x + 5);
+			float midPointY = fieldObj.transform.position.y + cardObject.GetComponent<RectTransform>().sizeDelta.y/2;
+
+			return new Vector3(midPointX, midPointY, 0);
 		}
 	};
 
 	public struct CardList {
 		public Card[] cards;
 		public int currSize;
+		public GameObject TableObject;
 
-		public CardList (int startSize) {
-			currSize = startSize;
+		public void UpdatePosition() {
+			for (int i = 0; i < currSize; ++i) {
+				cards [i].cardObject.transform.position = cards [i].GetPosition (currSize, i+1, TableObject);
+			}
+		}
+
+		public CardList (int startSize, GameObject _tableObject) {
 			cards = new Card[9];
+			currSize = 0;
+			TableObject = _tableObject;
 		}
 
 		public void AddCard(Card card) {
 			cards [currSize] = card;
 			++currSize;
+			UpdatePosition ();
 		}
 
 		public void CardSwap (int position1, int position2) {
@@ -52,35 +72,43 @@ public class CardManager : MonoBehaviour {
 				CardSwap (i - 1, i);
 			}
 			--currSize;
+
+			UpdatePosition ();
 		}
 
 		public void printInfo() {
+			Debug.Log ("Size:" + currSize + "; Elements:");
 			for (int i = 0; i < currSize; ++i) 
 				Debug.Log ("" + cards[i].stats);
 		}
 
 		public int AllStats () {
 			int res = 0;
-			foreach (Card card in cards) {
-				res += card.stats;
-			}
+
+			for (int i = 0; i < currSize; ++i)
+				res += cards [i].stats;
 
 			return res;
 		}
 	};
 
-	public CardList TableList = new CardList(0);
-	public CardList DeckList = new CardList(0);
-	public CardList handList = new CardList(0);
-	public CardList dieList = new CardList(0);
+	public CardList TableList;
+	public CardList DeckList;
+	public CardList handList;
+	public CardList dieList; 
 
 	public GameObject ScoreObject;
 
 	public void Start() {
-		
+		TableList = new CardList (0, tableObject);
+		DeckList = new CardList (0, tableObject);
+		handList = new CardList (0, tableObject);
+		dieList = new CardList (0, tableObject);
 	}
 
 	public void Update() {
-		
+		ScoreObject.GetComponent<UnityEngine.UI.Text> ().text = "" + TableList.AllStats ();
+		if (Input.GetKeyDown (KeyCode.G))
+			TableList.RemoveCard (0);
 	}
 }

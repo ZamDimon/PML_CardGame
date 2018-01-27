@@ -11,8 +11,15 @@ public class PlaceCard : MonoBehaviour {
 	private Vector3 OnCardPosition; //Position of a card when the mouse is on
 	public float animationSpeed; //Speed of animation
 	public float moveSpeed; //Chasing the mouse speed
-	private float realSpeed;
-	private int currMode = 0;
+	private float realSpeed; //Current speed of a card (animationSpeed or moveSpeed)
+	private int mode = 0;
+	public float distanceToSet; //Distance, from which card will be placed
+	private GameObject cardManager;
+	public GameObject tableObject; //Table object
+
+	[Space]
+	public int StartStats;
+	public GameObject StatsObject;
 
 	public void Start() {
 		//Setting start values
@@ -20,6 +27,13 @@ public class PlaceCard : MonoBehaviour {
 		OnCardPosition = transform.position + new Vector3 (0, 40, 0); 
 		pointToMove = originPosition; 
 		realSpeed = animationSpeed;
+		cardManager = GameObject.FindGameObjectWithTag ("CardManager");
+	}
+
+	Vector3 PlacingAnimationPosition() { //Position of a card when player play it
+		float yPosition = Screen.height / 2 - this.GetComponent<RectTransform> ().sizeDelta.y / 2;
+		float xPosition = Screen.width - this.GetComponent<RectTransform> ().sizeDelta.x;
+		return new Vector3 (xPosition, yPosition, 0);
 	}
 
 	bool IsThisCard(List <RaycastResult> rayResults) { //"Did we find this card" method
@@ -40,7 +54,15 @@ public class PlaceCard : MonoBehaviour {
 		return false;
 	} 
 
-	int mode = 0;
+	bool CanChooseCard () {
+		GameObject[] _cards = GameObject.FindGameObjectsWithTag ("Card");
+		for (int i = 0; i < _cards.Length; ++i) {
+			if (_cards[i].GetComponent<PlaceCard> ().mode != 0)
+				return false;
+		}
+
+		return true;
+	}
 
 	Vector3 MousePoint () {
 		float positionX = Input.mousePosition.x;
@@ -65,16 +87,34 @@ public class PlaceCard : MonoBehaviour {
 			pointToMove = (IsThisCard (results) && !Input.GetMouseButton (0)) ? OnCardPosition : originPosition; //Playing animation
 			realSpeed = (IsThisCard (results) && Input.GetMouseButton (0)) ? moveSpeed : realSpeed;
 
-			if (IsThisCard (results) && Input.GetMouseButton (0)) 
+			if (IsThisCard (results) && Input.GetMouseButton (0) && CanChooseCard()) 
 				mode = 1;
 			
 			break;
+
 		case 1: 
 			//If we choose the card
 			pointToMove = MousePoint ();
 			if (Input.GetMouseButtonUp (0)) 
-				mode = 0;
+				mode = (Input.mousePosition.y < distanceToSet) ? 0 : 2;
 			
+			break;
+
+		case 2:
+			pointToMove = PlacingAnimationPosition ();
+			if (Vector3.Distance(pointToMove, transform.position) < 1f) {
+				CardManager.Card card = new CardManager.Card (StartStats, this.gameObject, StatsObject);
+				cardManager.GetComponent<CardManager> ().TableList.AddCard (card);
+				pointToMove = card.GetPosition (cardManager.GetComponent<CardManager> ().TableList.currSize, cardManager.GetComponent<CardManager> ().TableList.currSize, tableObject);
+				mode = 3;
+			}
+			break;
+
+		case 3:
+			if (Vector3.Distance (pointToMove, transform.position) < 1f) {
+				mode = 0;
+				this.GetComponent<PlaceCard> ().enabled = false;
+			}
 			break;
 		}
 	}
