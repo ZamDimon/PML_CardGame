@@ -270,9 +270,10 @@ GameObject:
   - component: {fileID: 122156931}
   - component: {fileID: 122156933}
   - component: {fileID: 122156932}
+  - component: {fileID: 122156934}
   m_Layer: 5
   m_Name: RawImage
-  m_TagString: Untagged
+  m_TagString: Icon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -327,6 +328,31 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 122156930}
+--- !u!114 &122156934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 122156930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b461240a14cb0764b8855b6bc4056236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SlidePref: {fileID: 0}
+  Menu: {fileID: 0}
+  MenuPoint: {fileID: 0}
+  SlidePoint: {fileID: 0}
+  TrashPoint: {fileID: 0}
+  Slide: {fileID: 0}
+  Script: {fileID: 0}
+  GoToLeftMenu: 0
+  GoLeftSlide: 0
+  Bar: 
+  BuyWhat: 
+  ReturnWhat: Money
+  Cost: 0
+  Text: {fileID: 1558078043}
 --- !u!1 &215705807
 GameObject:
   m_ObjectHideFlags: 0
@@ -902,6 +928,11 @@ MonoBehaviour:
   Script: {fileID: 0}
   GoToLeftMenu: 0
   GoLeftSlide: 0
+  Bar: 
+  BuyWhat: 
+  ReturnWhat: 
+  Cost: 0
+  Text: {fileID: 0}
 --- !u!1001 &827206252
 Prefab:
   m_ObjectHideFlags: 0
@@ -999,46 +1030,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114100221231570726, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: Menu
-      value: 
-      objectReference: {fileID: 1866808395}
-    - target: {fileID: 114100221231570726, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: MenuPoint
-      value: 
-      objectReference: {fileID: 1198024851}
-    - target: {fileID: 114100221231570726, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: SlidePoint
-      value: 
-      objectReference: {fileID: 1213326148}
-    - target: {fileID: 114100221231570726, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: TrashPoint
-      value: 
-      objectReference: {fileID: 17349218}
-    - target: {fileID: 114112311934847546, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: Menu
-      value: 
-      objectReference: {fileID: 1866808395}
-    - target: {fileID: 114112311934847546, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: MenuPoint
-      value: 
-      objectReference: {fileID: 1198024851}
-    - target: {fileID: 114112311934847546, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: SlidePoint
-      value: 
-      objectReference: {fileID: 1213326148}
-    - target: {fileID: 114112311934847546, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: TrashPoint
-      value: 
-      objectReference: {fileID: 17349218}
     - target: {fileID: 114783556941735748, guid: c0f1f367820139a44af9b3d464c312f4,
         type: 2}
       propertyPath: Menu
@@ -1059,6 +1050,56 @@ Prefab:
       propertyPath: TrashPoint
       value: 
       objectReference: {fileID: 17349218}
+    - target: {fileID: 114112311934847546, guid: c0f1f367820139a44af9b3d464c312f4,
+        type: 2}
+      propertyPath: Menu
+      value: 
+      objectReference: {fileID: 1866808395}
+    - target: {fileID: 114112311934847546, guid: c0f1f367820139a44af9b3d464c312f4,
+        type: 2}
+      propertyPath: MenuPoint
+      value: 
+      objectReference: {fileID: 1198024851}
+    - target: {fileID: 114112311934847546, guid: c0f1f367820139a44af9b3d464c312f4,
+        type: 2}
+      propertyPath: SlidePoint
+      value: 
+      objectReference: {fileID: 1213326148}
+    - target: {fileID: 114112311934847546, guid: c0f1f367820139a44af9b3d464c312f4,
+        type: 2}
+      propertyPath: TrashPoint
+      value: 
+      objectReference: {fileID: 17349218}
+    - target: {fileID: 114100221231570726, guid: c0f1f367820139a44af9b3d464c312f4,
+        type: 2}
+      propertyPath: Menu
+      value: 
+      objectReference: {fileID: 1866808395}
+    - target: {fileID: 114100221231570726, guid: c0f1f367820139a44af9b3d464c312f4,
+        type: 2}
+      propertyPath: MenuPoint
+      value: 
+      objectReference: {fileID: 1198024851}
+    - target: {fileID: 114100221231570726, guid: c0f1f367820139a44af9b3d464c312f4,
+        type: 2}
+      propertyPath: SlidePoint
+      value: 
+      objectReference: {fileID: 1213326148}
+    - target: {fileID: 114100221231570726, guid: c0f1f367820139a44af9b3d464c312f4,
+        type: 2}
+      propertyPath: TrashPoint
+      value: 
+      objectReference: {fileID: 17349218}
+    - target: {fileID: 224040202127152600, guid: c0f1f367820139a44af9b3d464c312f4,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -240.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 224562184903201650, guid: c0f1f367820139a44af9b3d464c312f4,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -108.9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c0f1f367820139a44af9b3d464c312f4, type: 2}
   m_IsPrefabParent: 0
@@ -1339,6 +1380,11 @@ MonoBehaviour:
   Script: {fileID: 0}
   GoToLeftMenu: 0
   GoLeftSlide: 0
+  Bar: 
+  BuyWhat: 
+  ReturnWhat: 
+  Cost: 0
+  Text: {fileID: 0}
 --- !u!1 &1021110568
 GameObject:
   m_ObjectHideFlags: 0
@@ -1847,6 +1893,7 @@ GameObject:
   - component: {fileID: 1310899229}
   - component: {fileID: 1310899231}
   - component: {fileID: 1310899230}
+  - component: {fileID: 1310899232}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1869,8 +1916,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000038146973, y: -24.835}
-  m_SizeDelta: {x: 36.56, y: 22.33}
+  m_AnchoredPosition: {x: 0.000046730376, y: -24.835}
+  m_SizeDelta: {x: 72.02, y: 22.33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1310899230
 MonoBehaviour:
@@ -1898,7 +1945,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -1911,6 +1958,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1310899228}
+--- !u!114 &1310899232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1310899228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1355730719
 GameObject:
   m_ObjectHideFlags: 0
@@ -2124,6 +2185,11 @@ MonoBehaviour:
   Script: {fileID: 0}
   GoToLeftMenu: 0
   GoLeftSlide: 0
+  Bar: 
+  BuyWhat: 
+  ReturnWhat: 
+  Cost: 0
+  Text: {fileID: 0}
 --- !u!1 &1461873409
 GameObject:
   m_ObjectHideFlags: 0
@@ -2271,6 +2337,7 @@ GameObject:
   - component: {fileID: 1558078042}
   - component: {fileID: 1558078044}
   - component: {fileID: 1558078043}
+  - component: {fileID: 1558078045}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -2293,8 +2360,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000038146973, y: -24.835}
-  m_SizeDelta: {x: 36.56, y: 22.33}
+  m_AnchoredPosition: {x: 0, y: -24.835}
+  m_SizeDelta: {x: 72.02, y: 22.33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1558078043
 MonoBehaviour:
@@ -2335,6 +2402,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1558078041}
+--- !u!114 &1558078045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1558078041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1730906286
 GameObject:
   m_ObjectHideFlags: 0
@@ -3087,6 +3168,11 @@ MonoBehaviour:
   Script: {fileID: 0}
   GoToLeftMenu: 0
   GoLeftSlide: 0
+  Bar: 
+  BuyWhat: 
+  ReturnWhat: 
+  Cost: 0
+  Text: {fileID: 0}
 --- !u!1 &2004118192
 GameObject:
   m_ObjectHideFlags: 0
@@ -3305,6 +3391,11 @@ MonoBehaviour:
   Script: {fileID: 0}
   GoToLeftMenu: 0
   GoLeftSlide: 0
+  Bar: 
+  BuyWhat: 
+  ReturnWhat: 
+  Cost: 0
+  Text: {fileID: 0}
 --- !u!1 &2066954225
 GameObject:
   m_ObjectHideFlags: 0
