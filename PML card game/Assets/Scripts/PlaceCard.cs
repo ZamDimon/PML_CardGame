@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class PlaceCard : MonoBehaviour {
 
-	private Vector3 pointToMove; //Point, where card will be moving
+	public Vector3 pointToMove; //Point, where card will be moving
 	private Vector3 originPosition; //Start position of a card
 	private Vector3 OnCardPosition; //Position of a card when the mouse is on
 	public float animationSpeed; //Speed of animation
@@ -17,9 +17,34 @@ public class PlaceCard : MonoBehaviour {
 	private GameObject cardManager;
 	public GameObject tableObject; //Table object
 
+	public enum CardType {
+		Creature = 0,
+		Spell = 1
+	};
+
+	public enum BattleCry
+	{
+		Nothing = 0,
+		PowerUpAllCreatures = 1,
+		SummonCreatures = 2
+	};
+	public CardType cardType;
+	public BattleCry battleCry;
+
+	//Power up settings
+	public int PowerUpAllCreaturesValue;
+
+	//Summon creatures settings
+	public GameObject summonCardObject;
+	public GameObject summonTextObject;
+	public int summonCardStats;
+
 	[Space]
 	public int StartStats;
 	public GameObject StatsObject;
+
+
+	bool Added = false;
 
 	public void Start() {
 		//Setting start values
@@ -70,6 +95,20 @@ public class PlaceCard : MonoBehaviour {
 		return new Vector3 (positionX, positionY, 0);
 	}
 		
+	public void ActivateBattleCry () {
+		switch (battleCry) {
+		case BattleCry.PowerUpAllCreatures:
+			cardManager.GetComponent<CardManager> ().TableList.PowerUp (PowerUpAllCreaturesValue);
+			break;
+		case BattleCry.SummonCreatures:
+			CardManager.Card summonedCard = new CardManager.Card (summonCardStats, summonCardObject, summonTextObject);
+			cardManager.GetComponent<CardManager> ().TableList.QuickAddCard (summonedCard);
+			break;
+		}
+
+		GameObject.FindGameObjectWithTag ("SkipTurnManager").GetComponent <TurnManager> ().playerTurn = 1;
+	}
+
 	public void FixedUpdate() {
 		//Moving card to a pointToMove position
 		transform.position = Vector3.Lerp(transform.position, pointToMove, Time.deltaTime * realSpeed); 
@@ -87,7 +126,7 @@ public class PlaceCard : MonoBehaviour {
 			pointToMove = (IsThisCard (results) && !Input.GetMouseButton (0)) ? OnCardPosition : originPosition; //Playing animation
 			realSpeed = (IsThisCard (results) && Input.GetMouseButton (0)) ? moveSpeed : realSpeed;
 
-			if (IsThisCard (results) && Input.GetMouseButton (0) && CanChooseCard()) 
+			if (IsThisCard (results) && Input.GetMouseButton (0) && CanChooseCard() && GameObject.FindGameObjectWithTag("SkipTurnManager").GetComponent<TurnManager>().playerTurn == 0) 
 				mode = 1;
 			
 			break;
@@ -95,26 +134,42 @@ public class PlaceCard : MonoBehaviour {
 		case 1: 
 			//If we choose the card
 			pointToMove = MousePoint ();
-			if (Input.GetMouseButtonUp (0)) 
-				mode = (Input.mousePosition.y < distanceToSet) ? 0 : 2;
+			if (Input.GetMouseButtonUp (0))
+				mode = (Input.mousePosition.y < distanceToSet) ? 0 : ((cardType == CardType.Spell)? 4 : 2);
 			
 			break;
 
 		case 2:
-			pointToMove = PlacingAnimationPosition ();
-			if (Vector3.Distance(pointToMove, transform.position) < 1f) {
-				CardManager.Card card = new CardManager.Card (StartStats, this.gameObject, StatsObject);
-				cardManager.GetComponent<CardManager> ().TableList.AddCard (card);
-				pointToMove = card.GetPosition (cardManager.GetComponent<CardManager> ().TableList.currSize, cardManager.GetComponent<CardManager> ().TableList.currSize, tableObject);
-				mode = 3;
+			CardManager.Card card = new CardManager.Card (StartStats, this.gameObject, StatsObject);
+
+			if (!Added) {
+				ActivateBattleCry ();
+				cardManager.GetComponent<CardManager> ().TableList.AddCard (card, 1);
+				Added = true;
 			}
+			
+			pointToMove = card.GetPosition (cardManager.GetComponent<CardManager> ().TableList.currSize, cardManager.GetComponent<CardManager> ().TableList.currSize, tableObject, 0);
+			if (Vector3.Distance (pointToMove, transform.position) < 15f) {
+				cardManager.GetComponent<CardManager> ().TableList.UpdatePosition ();
+				mode = 0; transform.GetComponent<PlaceCard> ().enabled = false;
+			}
+
 			break;
 
 		case 3:
-			if (Vector3.Distance (pointToMove, transform.position) < 1f) {
+			mode = 0;
+			break;
+
+		case 4:
+			pointToMove = new Vector3 (Screen.width - transform.GetComponent<RectTransform> ().sizeDelta.x, 
+				Screen.height / 2 - transform.GetComponent<RectTransform> ().sizeDelta.y / 2, 0);
+
+			if (Vector3.Distance (pointToMove, transform.position) < 15f) {
+				ActivateBattleCry ();
+				Destroy (transform.gameObject);
 				mode = 0;
-				this.GetComponent<PlaceCard> ().enabled = false;
 			}
+
 			break;
 		}
 	}

@@ -6,8 +6,7 @@ TagManager:
   tags:
   - Card
   - CardManager
-  - Menu
-  - Icon
+  - SkipTurnManager
   layers:
   - Default
   - TransparentFX
