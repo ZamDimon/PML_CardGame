@@ -184,7 +184,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1819736296}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &55632639
 GameObject:
@@ -345,6 +345,9 @@ MonoBehaviour:
   SlidePoint: {fileID: 0}
   TrashPoint: {fileID: 0}
   Slide: {fileID: 0}
+  MedalionAni: {fileID: 0}
+  SpawnPoint: {fileID: 0}
+  ActivatePanels: []
   Script: {fileID: 0}
   GoToLeftMenu: 0
   GoLeftSlide: 0
@@ -590,11 +593,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1368371064}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000015258789, y: -59.6}
+  m_AnchoredPosition: {x: 0.000015258789, y: -74}
   m_SizeDelta: {x: 90, y: -128.94}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &538858101
@@ -618,7 +621,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 15
+    m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -629,8 +632,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u041A\u0443\u043F\u0438\u0442\u044C \u043A\u0430\u0440\u0442\u044B \u0438\u043B\u0438
-    \n\u0441\u0431\u043E\u0440\u043D\u0438\u043A\u0438 \u0437\u0430\u0434\u0430\u0447"
+  m_Text: "\u041A\u0443\u043F\u0438\u0442\u044C \u043C\u0435\u0434\u0430\u043B\u044C\u043E\u043D\u044B\n"
 --- !u!222 &538858102
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -925,6 +927,9 @@ MonoBehaviour:
   SlidePoint: {fileID: 1213326148}
   TrashPoint: {fileID: 17349218}
   Slide: {fileID: 0}
+  MedalionAni: {fileID: 0}
+  SpawnPoint: {fileID: 0}
+  ActivatePanels: []
   Script: {fileID: 0}
   GoToLeftMenu: 0
   GoLeftSlide: 0
@@ -933,176 +938,6 @@ MonoBehaviour:
   ReturnWhat: 
   Cost: 0
   Text: {fileID: 0}
---- !u!1001 &827206252
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1819736296}
-    m_Modifications:
-    - target: {fileID: 224772818187584168, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224772818187584168, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224772818187584168, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224772818187584168, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224772818187584168, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224772818187584168, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224772818187584168, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224772818187584168, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224772818187584168, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 1345
-      objectReference: {fileID: 0}
-    - target: {fileID: 224772818187584168, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -12.900036
-      objectReference: {fileID: 0}
-    - target: {fileID: 224772818187584168, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 529.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 224772818187584168, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 370.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 224772818187584168, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224772818187584168, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224772818187584168, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224772818187584168, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224772818187584168, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224772818187584168, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114783556941735748, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: Menu
-      value: 
-      objectReference: {fileID: 1866808395}
-    - target: {fileID: 114783556941735748, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: MenuPoint
-      value: 
-      objectReference: {fileID: 1198024851}
-    - target: {fileID: 114783556941735748, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: SlidePoint
-      value: 
-      objectReference: {fileID: 1213326148}
-    - target: {fileID: 114783556941735748, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: TrashPoint
-      value: 
-      objectReference: {fileID: 17349218}
-    - target: {fileID: 114112311934847546, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: Menu
-      value: 
-      objectReference: {fileID: 1866808395}
-    - target: {fileID: 114112311934847546, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: MenuPoint
-      value: 
-      objectReference: {fileID: 1198024851}
-    - target: {fileID: 114112311934847546, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: SlidePoint
-      value: 
-      objectReference: {fileID: 1213326148}
-    - target: {fileID: 114112311934847546, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: TrashPoint
-      value: 
-      objectReference: {fileID: 17349218}
-    - target: {fileID: 114100221231570726, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: Menu
-      value: 
-      objectReference: {fileID: 1866808395}
-    - target: {fileID: 114100221231570726, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: MenuPoint
-      value: 
-      objectReference: {fileID: 1198024851}
-    - target: {fileID: 114100221231570726, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: SlidePoint
-      value: 
-      objectReference: {fileID: 1213326148}
-    - target: {fileID: 114100221231570726, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: TrashPoint
-      value: 
-      objectReference: {fileID: 17349218}
-    - target: {fileID: 224040202127152600, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -240.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 224562184903201650, guid: c0f1f367820139a44af9b3d464c312f4,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -108.9
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: c0f1f367820139a44af9b3d464c312f4, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &856909785
 GameObject:
   m_ObjectHideFlags: 0
@@ -1377,6 +1212,9 @@ MonoBehaviour:
   SlidePoint: {fileID: 1213326148}
   TrashPoint: {fileID: 17349218}
   Slide: {fileID: 0}
+  MedalionAni: {fileID: 0}
+  SpawnPoint: {fileID: 0}
+  ActivatePanels: []
   Script: {fileID: 0}
   GoToLeftMenu: 0
   GoLeftSlide: 0
@@ -1480,11 +1318,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1368371064}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000004703499, y: -24.599998}
+  m_AnchoredPosition: {x: 0.000004703499, y: -36.876244}
   m_SizeDelta: {x: 90, y: -128.94}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1078567384
@@ -1508,7 +1346,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_FontSize: 34
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1631,7 +1469,7 @@ RectTransform:
   - {fileID: 2036209931}
   - {fileID: 606960041}
   m_Father: {fileID: 1819736296}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1670,11 +1508,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1115285315}
---- !u!224 &1166231062 stripped
-RectTransform:
-  m_PrefabParentObject: {fileID: 224772818187584168, guid: c0f1f367820139a44af9b3d464c312f4,
-    type: 2}
-  m_PrefabInternal: {fileID: 827206252}
 --- !u!1 &1198024851
 GameObject:
   m_ObjectHideFlags: 0
@@ -1746,7 +1579,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1819736296}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1199984472
 GameObject:
@@ -1881,7 +1714,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1819736296}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1310899228
 GameObject:
@@ -2070,8 +1903,8 @@ RectTransform:
   m_LocalScale: {x: 0.99997604, y: 0.99997604, z: 0.99997604}
   m_Children:
   - {fileID: 215705808}
-  - {fileID: 1078567383}
   - {fileID: 538858100}
+  - {fileID: 1078567383}
   m_Father: {fileID: 1866808396}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2182,6 +2015,9 @@ MonoBehaviour:
   SlidePoint: {fileID: 1213326148}
   TrashPoint: {fileID: 17349218}
   Slide: {fileID: 0}
+  MedalionAni: {fileID: 0}
+  SpawnPoint: {fileID: 0}
+  ActivatePanels: []
   Script: {fileID: 0}
   GoToLeftMenu: 0
   GoLeftSlide: 0
@@ -2787,7 +2623,6 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1166231062}
   - {fileID: 17349220}
   - {fileID: 1213326150}
   - {fileID: 1198024853}
@@ -2983,7 +2818,7 @@ RectTransform:
   - {fileID: 1971896325}
   - {fileID: 1368371064}
   m_Father: {fileID: 1819736296}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3165,6 +3000,9 @@ MonoBehaviour:
   SlidePoint: {fileID: 1213326148}
   TrashPoint: {fileID: 17349218}
   Slide: {fileID: 0}
+  MedalionAni: {fileID: 0}
+  SpawnPoint: {fileID: 0}
+  ActivatePanels: []
   Script: {fileID: 0}
   GoToLeftMenu: 0
   GoLeftSlide: 0
@@ -3388,6 +3226,9 @@ MonoBehaviour:
   SlidePoint: {fileID: 0}
   TrashPoint: {fileID: 0}
   Slide: {fileID: 0}
+  MedalionAni: {fileID: 0}
+  SpawnPoint: {fileID: 0}
+  ActivatePanels: []
   Script: {fileID: 0}
   GoToLeftMenu: 0
   GoLeftSlide: 0
