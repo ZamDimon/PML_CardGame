@@ -186,7 +186,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ac630722bf5cd994b89cdf2f6a05f27d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bcf99a255cfd5b44ca96daf71b78f582, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -240,7 +240,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ac630722bf5cd994b89cdf2f6a05f27d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bcf99a255cfd5b44ca96daf71b78f582, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -265,9 +265,17 @@ MonoBehaviour:
   SlidePoint: {fileID: 0}
   TrashPoint: {fileID: 0}
   Slide: {fileID: 1159601887260430}
+  MedalionAni: {fileID: 0}
+  SpawnPoint: {fileID: 0}
+  ActivatePanels: []
   Script: {fileID: 0}
   GoToLeftMenu: 0
   GoLeftSlide: 0
+  Bar: 
+  BuyWhat: 
+  ReturnWhat: 
+  Cost: 0
+  Text: {fileID: 0}
 --- !u!114 &114952480411992892
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -353,7 +361,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: fdab31babb4f2e44a911be62194567a4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: afe5d4aa219c2624fb1dba113d5c2aa8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
