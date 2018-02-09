@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\menu\scripts\AllMenuButtons.cs" />
+     <Compile Include="Assets\menu\scripts\AudioMenu.cs" />
      <Compile Include="Assets\menu\scripts\Deletemedalion.cs" />
      <Compile Include="Assets\Scripts\AudiaOfCharacters.cs" />
      <Compile Include="Assets\Scripts\AudoA.cs" />
