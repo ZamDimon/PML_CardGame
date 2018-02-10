@@ -10,8 +10,14 @@ public class Deletemedalion : MonoBehaviour {
 			Destroy (transform.parent.gameObject);
 			Destroy (this.gameObject);
 		}
+		if (this.gameObject.GetComponent<Image> ().color.a == 255) {
+			CardOff ();
+		}
 	}
 	public void ClickOn(){
 		this.gameObject.GetComponent<Animator> ().SetBool ("Ani", true);
+	}
+	public void CardOff(){
+		Debug.Log ("gg");
 	}
 }
